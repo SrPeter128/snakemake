@@ -102,6 +102,7 @@ class Reporter(ReporterBase):
 
         categories = data.render_categories(self.results)
         rendered_results = data.render_results(self.results, self.mode_embedded)
+        data.render_rulegraph_dagviz(rulegraph["nodes"], rulegraph["links"])
         rulegraph = data.render_rulegraph(
             rulegraph["nodes"], rulegraph["links"], rulegraph["links_direct"]
         )

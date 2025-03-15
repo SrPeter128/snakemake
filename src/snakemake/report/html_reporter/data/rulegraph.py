@@ -1,7 +1,27 @@
 import json
+import dagviz
+import networkx as nx
 
+def render_rulegraph_dagviz(nodes, links):
+
+# Create the DAG
+    G = nx.DiGraph()
+    for this_node in nodes:
+        if this_node["rule"] != "all":
+            G.add_node(f"{this_node["rule"]}")
+
+    for this_link in links:
+        G.add_edge(this_link["sourcerule"], this_link["targetrule"])
+
+    # Create an SVG as a string
+    r = dagviz.render_svg(G)
+    with open("/home/matthias/projects/snakemake/tests/test_issue3361_pass/simple.svg", "wt") as fs:
+        fs.write(r)
 
 def render_rulegraph(nodes, links, links_direct):
+    print(nodes)
+    print(links)
+
     return json.dumps(
         {
             "$schema": "https://vega.github.io/schema/vega/v5.json",
