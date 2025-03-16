@@ -49,7 +49,7 @@ dependencies = [
   "smart-open>=4.0,<8.0",
   "snakemake-interface-executor-plugins>=9.3.2,<10.0",
   "snakemake-interface-common>=1.17.0,<2.0",
-  "snakemake-interface-storage-plugins>=3.5.0,<4.0",
+  "snakemake-interface-storage-plugins",
   "snakemake-interface-report-plugins>=1.1.0,<2.0.0",
   "snakemake-interface-logger-plugins>=1.1.0,<2.0.0",
   "tabulate",
@@ -57,7 +57,7 @@ dependencies = [
   "wrapt",
   "yte>=1.5.5,<2.0",
   "dpath>=2.1.6,<3.0.0",
-  "conda-inject>=1.3.1,<2.0",
+  "conda-inject>=1.3.1,<2.0", "dagviz>=0.4.0,<0.5",
 ]
 
 [project.urls]
@@ -276,3 +276,6 @@ build = { cmd = "python -m build", description = "Build the package into the dis
 check-build = { cmd = "python -m twine check dist/*", depends-on = [
   "build",
 ], description = "Check that the package can be uploaded" }
+
+[tool.pixi.dependencies]
+black = ">=25.1.0,<26"
