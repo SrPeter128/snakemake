@@ -1,6 +1,6 @@
 'use strict';
 
-class RuleGraph extends React.Component {
+class RuleGraph_dagviz extends React.Component {
     constructor(props) {
         super(props);
         this.renderSVG = this.renderSVG.bind(this);
@@ -12,7 +12,7 @@ class RuleGraph extends React.Component {
         return e(
             "div",
             { id: "rulegraph_dagviz", className: "max-h-screen py-2" },
-            e("div", { id: "rulegraph_dagviz" })
+            ("div", { id: "rulegraph_dagviz" })
         );
     }
 
@@ -36,6 +36,6 @@ class RuleGraph extends React.Component {
     }
 }
 
-RuleGraph.propTypes = {
+RuleGraph_dagviz.propTypes = {
     svgString: PropTypes.string.isRequired
 };
